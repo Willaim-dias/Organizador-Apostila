@@ -21,7 +21,6 @@ public class PDFModules {
             renderer = new PDFRenderer(document);
             return renderer;
         } catch (IOException e) {
-            System.out.println("Erro ao renderizar página: " + e);
         }
         return null;
     }
@@ -35,7 +34,6 @@ public class PDFModules {
             try {
                 document.close();
             } catch (IOException e) {
-                System.out.println("Erro ao fechar o documento: " + e);
             }
         }
     }

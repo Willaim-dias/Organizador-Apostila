@@ -37,7 +37,7 @@ public class ScreenAddPdf extends javax.swing.JFrame {
         btnSave.setText("Salvar");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnSaveActionPerformed();
             }
         });
 
@@ -97,7 +97,7 @@ public class ScreenAddPdf extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnSaveActionPerformed() {//GEN-FIRST:event_btnSaveActionPerformed
         if (txtName.getText().equals("")) {
             ShowMessage message = new ShowMessage();
             message.information("Campo Titulo Vazio!");
@@ -110,7 +110,10 @@ public class ScreenAddPdf extends javax.swing.JFrame {
             if (selection == 0) {
                 File file = fileChooser.getSelectedFile();
                 InsertData insertData = new InsertData();
-                insertData.inserirPDF(txtName.getText(),txtReference.getText(),txtArea.getText(),file.toString());
+                String name = txtName.getText().toLowerCase();
+                String reference = txtReference.getText().toLowerCase();
+                String description = txtArea.getText().toLowerCase();
+                insertData.inserirPDF(name,reference,description,file.toString());
             }
         }
     }//GEN-LAST:event_btnSaveActionPerformed

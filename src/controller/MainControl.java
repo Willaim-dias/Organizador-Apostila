@@ -36,8 +36,10 @@ public class MainControl {
 
         GetData getData = new GetData();
         List<Map<String, Object>> result = getData.recuperarDatas();
+        main.getLabelTotal().setText("Total de arquivos: "+result.size());
         for (Map<String, Object> row : result) {
-            Object[] obj = {row.get("id"), row.get("nome_arquivo")};
+            String name = row.get("nome_arquivo").toString().toLowerCase();
+            Object[] obj = {row.get("id"),name};
             dtm.addRow(obj);
         }
     }

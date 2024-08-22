@@ -37,6 +37,7 @@ public class ScreenMain extends javax.swing.JFrame {
         tableData = new javax.swing.JTable();
         btnSearch = new javax.swing.JButton();
         txtSearch = new javax.swing.JTextField();
+        labelTotal = new javax.swing.JLabel();
         scrollPane = new view.components.scrollPane();
         labalShowFile = new javax.swing.JLabel();
         labelBottom = new javax.swing.JLabel();
@@ -53,7 +54,7 @@ public class ScreenMain extends javax.swing.JFrame {
         btnOpenPDF.setText("Abrir Arquivo");
         btnOpenPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOpenPDFActionPerformed(evt);
+                btnOpenPDFActionPerformed();
             }
         });
 
@@ -61,7 +62,7 @@ public class ScreenMain extends javax.swing.JFrame {
         btnBefore.setText("<<<<<");
         btnBefore.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBeforeActionPerformed(evt);
+                btnBeforeActionPerformed();
             }
         });
 
@@ -74,7 +75,7 @@ public class ScreenMain extends javax.swing.JFrame {
         btnNext.setText(">>>>>");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
+                btnNextActionPerformed();
             }
         });
 
@@ -82,7 +83,7 @@ public class ScreenMain extends javax.swing.JFrame {
         btnShowDetails.setText("Ver Detalhes");
         btnShowDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShowDetailsActionPerformed(evt);
+                btnShowDetailsActionPerformed();
             }
         });
 
@@ -90,7 +91,7 @@ public class ScreenMain extends javax.swing.JFrame {
         btnDelete.setText("Excluir Arquivo");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
+                btnDeleteActionPerformed();
             }
         });
 
@@ -98,7 +99,7 @@ public class ScreenMain extends javax.swing.JFrame {
         btnAdd.setText("Adicionar Arquivo");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
+                btnAddActionPerformed();
             }
         });
 
@@ -106,14 +107,14 @@ public class ScreenMain extends javax.swing.JFrame {
         btnDownload.setText("Baixar");
         btnDownload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDownloadActionPerformed(evt);
+                btnDownloadActionPerformed();
             }
         });
 
         btnUpdate.setText("Atualizar Tabela");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnUpdateActionPerformed();
             }
         });
 
@@ -143,9 +144,13 @@ public class ScreenMain extends javax.swing.JFrame {
         btnSearch.setText("Pesquisar");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
+                btnSearchActionPerformed();
             }
         });
+
+        labelTotal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelTotal.setForeground(new java.awt.Color(255, 255, 255));
+        labelTotal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
@@ -168,9 +173,11 @@ public class ScreenMain extends javax.swing.JFrame {
                     .addComponent(btnDownload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelLayout.setVerticalGroup(
@@ -187,7 +194,9 @@ public class ScreenMain extends javax.swing.JFrame {
                 .addComponent(btnShowDetails)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDownload, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
+                .addComponent(labelTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                     .addComponent(txtSearch))
@@ -216,7 +225,7 @@ public class ScreenMain extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnOpenPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenPDFActionPerformed
+    private void btnOpenPDFActionPerformed() {//GEN-FIRST:event_btnOpenPDFActionPerformed
         if (tableData.getSelectedRow() < 0) {
             message.information("Selecione uma linha");
         } else {
@@ -224,26 +233,27 @@ public class ScreenMain extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnOpenPDFActionPerformed
 
-    private void btnBeforeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeforeActionPerformed
+    private void btnBeforeActionPerformed() {//GEN-FIRST:event_btnBeforeActionPerformed
         control.skipPage(2);
     }//GEN-LAST:event_btnBeforeActionPerformed
 
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+    private void btnNextActionPerformed() {//GEN-FIRST:event_btnNextActionPerformed
         control.skipPage(1);
     }//GEN-LAST:event_btnNextActionPerformed
 
-    private void btnShowDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowDetailsActionPerformed
+    private void btnShowDetailsActionPerformed() {//GEN-FIRST:event_btnShowDetailsActionPerformed
         if (tableData.getSelectedRow() < 0) {
             message.information("Selecione uma linha");
         } else {
             ScreenShowDetails show = new ScreenShowDetails();
             int id = Integer.parseInt(tableData.getValueAt(tableData.getSelectedRow(), 0).toString());
             show.AddData(id);
+            show.setLocation(this.getX(), this.getY());
             show.setVisible(true);
         }
     }//GEN-LAST:event_btnShowDetailsActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+    private void btnDeleteActionPerformed() {//GEN-FIRST:event_btnDeleteActionPerformed
         if (tableData.getSelectedRow() < 0) {
             message.information("Selecione uma linha");
         } else {
@@ -255,12 +265,13 @@ public class ScreenMain extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+    private void btnAddActionPerformed() {//GEN-FIRST:event_btnAddActionPerformed
         ScreenAddPdf sdp = new ScreenAddPdf();
+        sdp.setLocation(this.getX(), this.getY());
         sdp.setVisible(true);
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+    private void btnSearchActionPerformed() {//GEN-FIRST:event_btnSearchActionPerformed
         if (txtSearch.getText().equals("")) {
             message.information("Preencha o campo de Pesquisa");
         } else {
@@ -268,7 +279,7 @@ public class ScreenMain extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void btnDownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDownloadActionPerformed
+    private void btnDownloadActionPerformed() {//GEN-FIRST:event_btnDownloadActionPerformed
         if (tableData.getSelectedRow() < 0) {
             message.information("Selecione uma linha");
         } else {
@@ -287,7 +298,7 @@ public class ScreenMain extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDownloadActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    private void btnUpdateActionPerformed() {//GEN-FIRST:event_btnUpdateActionPerformed
         control.addDataDable();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -315,6 +326,10 @@ public class ScreenMain extends javax.swing.JFrame {
         return labelShowNumber;
     }
 
+    public JLabel getLabelTotal() {
+        return labelTotal;
+    }
+
     public JTable getTableData() {
         return tableData;
     }
@@ -332,6 +347,7 @@ public class ScreenMain extends javax.swing.JFrame {
     private javax.swing.JLabel labalShowFile;
     private javax.swing.JLabel labelBottom;
     private javax.swing.JLabel labelShowNumber;
+    private javax.swing.JLabel labelTotal;
     private javax.swing.JPanel panel;
     private view.components.scrollPane scrollPane;
     private javax.swing.JScrollPane scrollPaneTable;

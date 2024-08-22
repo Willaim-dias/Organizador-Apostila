@@ -4,7 +4,6 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="Detalhes"/>
-    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -27,15 +26,15 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="scrollPane" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtReference" alignment="1" max="32767" attributes="0"/>
-                  <Component id="txtName" alignment="0" pref="329" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="txtName" max="32767" attributes="0"/>
+                  <Component id="txtReference" alignment="0" max="32767" attributes="0"/>
+                  <Component id="scrollPane" alignment="0" pref="378" max="32767" attributes="0"/>
                   <Component id="labelTitle1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="labelTitle2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labelTitle2" max="32767" attributes="0"/>
                   <Component id="labelTitle" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,15 +42,15 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="labelTitle" min="-2" max="-2" attributes="0"/>
+              <Component id="labelTitle" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtName" pref="39" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="labelTitle2" min="-2" max="-2" attributes="0"/>
+              <Component id="labelTitle2" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtReference" pref="40" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="labelTitle1" min="-2" max="-2" attributes="0"/>
+              <Component id="labelTitle1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="scrollPane" pref="108" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
@@ -65,12 +64,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
         </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Nome do Arquivo"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtName">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
         </Property>
@@ -81,12 +80,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="16" style="0"/>
         </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Referencia"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtReference">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
         </Property>
@@ -110,7 +109,6 @@
       <SubComponents>
         <Component class="javax.swing.JTextArea" name="txtArea">
           <Properties>
-            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="0"/>
