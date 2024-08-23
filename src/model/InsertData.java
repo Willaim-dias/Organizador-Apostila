@@ -19,10 +19,11 @@ public class InsertData {
             FileInputStream fis = new FileInputStream(file);
             byte[] buffer = new byte[(int) file.length()];
             fis.read(buffer);
+            fis.close();
             return buffer;
         } catch (IOException e) {
             message.aler("Erro ao converter codigo-4: " + e);
-        }
+        } 
         return null;
     }
 
@@ -38,6 +39,8 @@ public class InsertData {
             messageReturn(st.executeUpdate());
         } catch (SQLException e) {
             message.aler("Erro ao Salvar codigo-1: " + e);
+        } finally {
+            DB.closeStatement(st);
         }
     }
 

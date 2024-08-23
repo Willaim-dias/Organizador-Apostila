@@ -256,9 +256,8 @@ public class ScreenMain extends javax.swing.JFrame {
     private void btnDeleteActionPerformed() {//GEN-FIRST:event_btnDeleteActionPerformed
         if (tableData.getSelectedRow() < 0) {
             message.information("Selecione uma linha");
-        } else {
-            int resp = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir os dados?", "Confirmação", JOptionPane.YES_NO_OPTION);
-            if (resp == 0) {
+        } else {  
+            if (message.confirmation("Tem certeza que deseja excluir os dados?")) {
                 int id = Integer.parseInt(tableData.getValueAt(tableData.getSelectedRow(), 0).toString());
                 control.deletePDF(id);
             }

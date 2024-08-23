@@ -15,4 +15,8 @@ public class ShowMessage {
         JOptionPane.showMessageDialog(null, message, "Allerta", JOptionPane.WARNING_MESSAGE);
     }
     
+    public boolean confirmation(String message) {
+       int resp = JOptionPane.showConfirmDialog(null,message, "Confirmação", JOptionPane.YES_NO_OPTION); 
+       return (resp == 0);
+    }
 }
