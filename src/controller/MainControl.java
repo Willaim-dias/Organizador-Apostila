@@ -17,7 +17,7 @@ import view.ScreenMain;
 public class MainControl {
 
     private final ScreenMain main;
-    private final PDFModules pdfModules;
+    private final PDFModules pdfModules = new PDFModules();;
     private PDFRenderer renderer;
     private int pageNumber;
     int width;
@@ -25,15 +25,14 @@ public class MainControl {
 
     public MainControl(ScreenMain main) {
         this.main = main;
-        pdfModules = new PDFModules();
         width = main.getLabelShowFile().getWidth();
     }
 
+    //adiciona dados a tabela
     public void addDataDable() {
         DefaultTableModel dtm = (DefaultTableModel) main.getTableData().getModel();
         list.clear();
         dtm.setRowCount(0);
-
         GetData getData = new GetData();
         List<Map<String, Object>> result = getData.recuperarDatas();
         main.getLabelTotal().setText("Total de arquivos: "+result.size());
@@ -44,6 +43,7 @@ public class MainControl {
         }
     }
 
+    //realiza buscas na tabela
     public void searchTable(String search) {
         DefaultTableModel dtm = (DefaultTableModel) main.getTableData().getModel();
         int contRows = main.getTableData().getRowCount();
@@ -68,7 +68,6 @@ public class MainControl {
         try {
             img = renderer.renderImageWithDPI(page, 150, ImageType.RGB);
         } catch (IOException ex) {
-            System.out.println("Erro: " + ex);
         }
         if (img != null) {
             Image formatedImg = img.getScaledInstance((width - 20), 1200, Image.SCALE_SMOOTH);
@@ -77,11 +76,8 @@ public class MainControl {
     }
 
     public void openPdf(String id) {
-        if (renderer != null) {
-            pdfModules.closeDocument();
-        }
         GetData getData = new GetData();
-        renderer = pdfModules.dbRendererPDF(getData.recuperarPDF(Integer.parseInt(id)));
+        renderer = pdfModules.rendererPDF(getData.recuperarPDF(Integer.parseInt(id)));
         pageNumber = pdfModules.getNumberPage();
         main.getLabelShowNumber().setText("1/" + pageNumber);
         showPdf(0);

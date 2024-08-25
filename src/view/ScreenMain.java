@@ -4,7 +4,6 @@ import controller.MainControl;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 public class ScreenMain extends javax.swing.JFrame {
@@ -26,7 +25,6 @@ public class ScreenMain extends javax.swing.JFrame {
         panel = new javax.swing.JPanel();
         btnOpenPDF = new javax.swing.JButton();
         btnBefore = new javax.swing.JButton();
-        labelShowNumber = new javax.swing.JLabel();
         btnNext = new javax.swing.JButton();
         btnShowDetails = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -38,6 +36,7 @@ public class ScreenMain extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         txtSearch = new javax.swing.JTextField();
         labelTotal = new javax.swing.JLabel();
+        labelShowNumber = new javax.swing.JLabel();
         scrollPane = new view.components.scrollPane();
         labalShowFile = new javax.swing.JLabel();
         labelBottom = new javax.swing.JLabel();
@@ -65,11 +64,6 @@ public class ScreenMain extends javax.swing.JFrame {
                 btnBeforeActionPerformed();
             }
         });
-
-        labelShowNumber.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        labelShowNumber.setForeground(new java.awt.Color(255, 255, 255));
-        labelShowNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelShowNumber.setText("0/0");
 
         btnNext.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         btnNext.setText(">>>>>");
@@ -152,6 +146,11 @@ public class ScreenMain extends javax.swing.JFrame {
         labelTotal.setForeground(new java.awt.Color(255, 255, 255));
         labelTotal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
+        labelShowNumber.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        labelShowNumber.setForeground(new java.awt.Color(255, 255, 255));
+        labelShowNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelShowNumber.setText("0/0");
+
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
@@ -186,10 +185,11 @@ public class ScreenMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnOpenPDF)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBefore, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelShowNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnBefore, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelShowNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnShowDetails)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

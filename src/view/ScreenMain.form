@@ -82,10 +82,12 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnOpenPDF" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnBefore" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="btnNext" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="labelShowNumber" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnBefore" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="btnNext" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="labelShowNumber" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnShowDetails" min="-2" max="-2" attributes="0"/>
@@ -133,18 +135,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBeforeActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="labelShowNumber">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="16" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="0/0"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnNext">
           <Properties>
@@ -267,6 +257,18 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelShowNumber">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="16" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="0/0"/>
           </Properties>
         </Component>
       </SubComponents>
