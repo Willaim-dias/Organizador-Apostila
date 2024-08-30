@@ -8,18 +8,22 @@ import view.ShowMessage;
 
 public class DeleteData {
 
+    private static final ShowMessage message = new ShowMessage();
+    
     public void removePDF(int id) {
+        PreparedStatement st = null;
         try {
-            PreparedStatement ps = DB.getConnection().prepareStatement("DELETE FROM PDFs WHERE ID = ?", Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, id);
-            messageReturn(ps.executeUpdate());
+            st = DB.getConnection().prepareStatement("DELETE FROM PDFs WHERE ID = ?",Statement.RETURN_GENERATED_KEYS);
+            st.setInt(1, id);
+            messageReturn(st.executeUpdate());
         } catch (SQLException e) {
-            System.out.println("Error: " + e);
+          message.aler("Error: "+e);
+        } finally {
+            DB.closeStatement(st);
         }
     }
  
     private void messageReturn(int resp) {
-        ShowMessage message = new ShowMessage();
         if (resp > 0) {
             message.information("Deletado com Salvo!");
         } else {

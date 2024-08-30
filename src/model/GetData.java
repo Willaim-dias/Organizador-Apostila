@@ -15,7 +15,7 @@ public class GetData {
     ShowMessage message = new ShowMessage();
 
     public byte[] recuperarPDF(int id) {
-        String sql = "SELECT PDF FROM PDFs WHERE ID = ?";
+        String sql = "SELECT PDF FROM PDFs WHERE ID = ?";     
         PreparedStatement st = null;
         ResultSet rs = null;
         try {
@@ -27,9 +27,10 @@ public class GetData {
                 return pdfBytes;
             }
         } catch (SQLException e) {
-            message.aler("Erro carregar codigo-1" + e);
+            message.aler("Error: "+e);
         } finally {
             DB.closeResultSet(rs);
+            DB.closeStatement(st);
         }
         return null;
     }
@@ -53,9 +54,10 @@ public class GetData {
             return result;
 
         } catch (SQLException e) {
-            message.aler("Erro carregar codigo-1" + e);
+            message.aler("Error: "+e);
         } finally {
             DB.closeResultSet(rs);
+            DB.closeStatement(st);
         }
         return null;
     }
@@ -74,9 +76,10 @@ public class GetData {
             data[2] = rs.getString("Descricao");
             return data;
         } catch (SQLException e) {
-            message.aler("Erro carregar codigo-1" + e);
+            message.aler("Error: "+e);
         } finally {
             DB.closeResultSet(rs);
+            DB.closeStatement(st);
         }
         return null;
     }

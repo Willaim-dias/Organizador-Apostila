@@ -42,17 +42,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="labelTitle" max="32767" attributes="0"/>
+              <Component id="labelTitle" pref="23" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtName" pref="39" max="32767" attributes="0"/>
+              <Component id="txtName" pref="40" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="labelTitle2" max="32767" attributes="0"/>
+              <Component id="labelTitle2" pref="22" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtReference" pref="40" max="32767" attributes="0"/>
+              <Component id="txtReference" pref="41" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="labelTitle1" max="32767" attributes="0"/>
+              <Component id="labelTitle1" pref="23" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="scrollPane" pref="108" max="32767" attributes="0"/>
+              <Component id="scrollPane" pref="109" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
           </Group>
       </Group>

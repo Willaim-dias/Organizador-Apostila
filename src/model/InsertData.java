@@ -15,15 +15,18 @@ public class InsertData {
 
     private byte[] lerArquivoPDF(String Filepath) {
         File file = new File(Filepath);
+        FileInputStream fis;
         try {
-            FileInputStream fis = new FileInputStream(file);
+            fis = new FileInputStream(file);
             byte[] buffer = new byte[(int) file.length()];
             fis.read(buffer);
             fis.close();
             return buffer;
         } catch (IOException e) {
             message.aler("Erro ao converter codigo-4: " + e);
-        } 
+        } finally {
+            
+        }
         return null;
     }
 
