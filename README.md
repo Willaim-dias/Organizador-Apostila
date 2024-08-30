@@ -10,6 +10,8 @@ slf4j: (Simple Logging Facade for Java) é uma API de abstração de logging par
 
 sqlite-jdbc: Driver JDBC (Java Database Connectivity) que permite que aplicativos Java se conectem a bancos de dados SQLite.
 
+apache PDFBox: Biblioteca Java que permite a manipulação de arquivos PDF, incluindo a criação, edição, extração de conteúdo e assinatura digital de documentos PDF.
+
 ## Banco de Dados Utilizado: SQLite
 SQLite é um sistema de gerenciamento de banco de dados relacional leve e autossuficiente, amplamente usado por ser embutido e não requerer a instalação de um servidor de banco de dados.
 
