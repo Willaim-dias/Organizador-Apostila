@@ -23,4 +23,4 @@ SQLite é um sistema de gerenciamento de banco de dados relacional leve e autoss
 2. **Substitua a pasta `src`**: Navegue até a pasta `src` do seu projeto e substitua-a pelo `src` deste repositório.
 3. **Compile e execute o código**.
 4. **Bibliotecas**: Certifique-se de baixar as bibliotecas necessárias.
-5. **Banco de Dados**: Se estiver usando um banco de dados diferente, modifique a classe "DB" conforme necessário.
+5. **Banco de Dados**: Se estiver usando um banco de dados diferente, modifique a classe `DB` conforme necessário.
