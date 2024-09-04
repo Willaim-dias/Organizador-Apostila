@@ -14,14 +14,3 @@ apache PDFBox: Biblioteca Java que permite a manipulação de arquivos PDF, incl
 
 ## Banco de Dados Utilizado: SQLite
 SQLite é um sistema de gerenciamento de banco de dados relacional leve e autossuficiente, amplamente usado por ser embutido e não requerer a instalação de um servidor de banco de dados.
-
-## Script SQL
-
-CREATE TABLE IF NOT EXISTS "PDFs" (
-	"ID"	INTEGER,
-	"Nome_arquivo"	TEXT NOT NULL,
-	"Referencia"	TEXT,
-	"Descricao"	TEXT,
-	"PDF"	BLOB NOT NULL,
-	PRIMARY KEY("ID" AUTOINCREMENT)
-);
