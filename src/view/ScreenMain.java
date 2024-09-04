@@ -26,7 +26,7 @@ public class ScreenMain extends javax.swing.JFrame {
         btnOpenPDF = new javax.swing.JButton();
         btnBefore = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
-        btnShowDetails = new javax.swing.JButton();
+        btnDescription = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         btnDownload = new javax.swing.JButton();
@@ -73,11 +73,11 @@ public class ScreenMain extends javax.swing.JFrame {
             }
         });
 
-        btnShowDetails.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnShowDetails.setText("Ver Detalhes");
-        btnShowDetails.addActionListener(new java.awt.event.ActionListener() {
+        btnDescription.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnDescription.setText("Descrição");
+        btnDescription.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShowDetailsActionPerformed();
+                btnDescriptionActionPerformed();
             }
         });
 
@@ -165,7 +165,7 @@ public class ScreenMain extends javax.swing.JFrame {
                         .addComponent(labelShowNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnNext))
-                    .addComponent(btnShowDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(scrollPaneTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -191,7 +191,7 @@ public class ScreenMain extends javax.swing.JFrame {
                         .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(labelShowNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnShowDetails)
+                .addComponent(btnDescription)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDownload, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
@@ -241,17 +241,17 @@ public class ScreenMain extends javax.swing.JFrame {
         control.skipPage(1);
     }//GEN-LAST:event_btnNextActionPerformed
 
-    private void btnShowDetailsActionPerformed() {//GEN-FIRST:event_btnShowDetailsActionPerformed
+    private void btnDescriptionActionPerformed() {//GEN-FIRST:event_btnDescriptionActionPerformed
         if (tableData.getSelectedRow() < 0) {
             message.information("Selecione uma linha");
         } else {
-            ScreenShowDetails show = new ScreenShowDetails();
+            ScreenDescription show = new ScreenDescription();
             int id = Integer.parseInt(tableData.getValueAt(tableData.getSelectedRow(), 0).toString());
             show.AddData(id);
             show.setLocation(this.getX(), this.getY());
             show.setVisible(true);
         }
-    }//GEN-LAST:event_btnShowDetailsActionPerformed
+    }//GEN-LAST:event_btnDescriptionActionPerformed
 
     private void btnDeleteActionPerformed() {//GEN-FIRST:event_btnDeleteActionPerformed
         if (tableData.getSelectedRow() < 0) {
@@ -337,11 +337,11 @@ public class ScreenMain extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBefore;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDescription;
     private javax.swing.JButton btnDownload;
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnOpenPDF;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnShowDetails;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel labalShowFile;
     private javax.swing.JLabel labelBottom;

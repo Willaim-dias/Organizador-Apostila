@@ -58,7 +58,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnNext" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="btnShowDetails" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnDescription" alignment="0" max="32767" attributes="0"/>
                       <Component id="btnDelete" alignment="0" max="32767" attributes="0"/>
                       <Component id="btnAdd" alignment="0" max="32767" attributes="0"/>
                       <Component id="scrollPaneTable" alignment="1" pref="0" max="32767" attributes="0"/>
@@ -90,7 +90,7 @@
                       <Component id="labelShowNumber" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnShowDetails" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnDescription" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnDownload" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -147,15 +147,15 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNextActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnShowDetails">
+        <Component class="javax.swing.JButton" name="btnDescription">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ver Detalhes"/>
+            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowDetailsActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDescriptionActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnDelete">

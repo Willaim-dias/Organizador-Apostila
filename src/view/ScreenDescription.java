@@ -2,9 +2,9 @@ package view;
 
 import model.GetData;
 
-public class ScreenShowDetails extends javax.swing.JFrame {
+public class ScreenDescription extends javax.swing.JFrame {
 
-    public ScreenShowDetails() {
+    public ScreenDescription() {
         initComponents();
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/image/pdf-book.png")).getImage());
     }
@@ -30,7 +30,7 @@ public class ScreenShowDetails extends javax.swing.JFrame {
         txtArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Detalhes");
+        setTitle("Descrição");
 
         labelTitle.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         labelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
