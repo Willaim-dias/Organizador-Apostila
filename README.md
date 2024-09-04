@@ -3,6 +3,8 @@
 Este é um programa simples que facilita a organização de arquivos PDF.
 O objetivo principal foi criar uma ferramenta que permita manter os documentos de estudo bem organizados, tornando mais fácil encontrar e acessar o material necessário.
 
+<img src="Capturar.png" height="35" alt="gmail logo"/>
+
 ## Bibliotecas Utilizadas
 logback: Ferramenta de registro (logging) em Java, utilizada para gerar logs de maneira flexível e eficiente.
 
