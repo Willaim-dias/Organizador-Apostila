@@ -1,6 +1,6 @@
 # Organizador-Apostila
 
-Este é um programa simples que facilita a organização de arquivos PDF.
+Este é um programa que facilita a organização de arquivos PDF.
 O objetivo principal foi criar uma ferramenta que permita manter os documentos de estudo bem organizados, tornando mais fácil encontrar e acessar o material necessário.
 
 <img src="Capturar.png" height="400" alt="img aplicação em execução"/>
