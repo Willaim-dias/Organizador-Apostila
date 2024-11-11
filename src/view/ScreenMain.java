@@ -1,20 +1,21 @@
 package view;
 
-import controller.MainControl;
+import view.util.Alert;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 public class ScreenMain extends javax.swing.JFrame {
 
-    private final MainControl control;
-    private final ShowMessage message = new ShowMessage();
+    private final ScreenMainControl control;
+    private final Alert message = new Alert();
 
     public ScreenMain() {
         initComponents();
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/image/pdf-book.png")).getImage());
-        control = new MainControl(this);
+        control = new ScreenMainControl(this);
         control.addDataDable();
     }
 
@@ -227,7 +228,7 @@ public class ScreenMain extends javax.swing.JFrame {
 
     private void btnOpenPDFActionPerformed() {//GEN-FIRST:event_btnOpenPDFActionPerformed
         if (tableData.getSelectedRow() < 0) {
-            message.information("Selecione uma linha");
+            Alert.menssage("Selecione uma linha", "into", JOptionPane.INFORMATION_MESSAGE);
         } else {
             control.openPdf(tableData.getValueAt(tableData.getSelectedRow(), 0).toString());
         }
@@ -243,7 +244,7 @@ public class ScreenMain extends javax.swing.JFrame {
 
     private void btnDescriptionActionPerformed() {//GEN-FIRST:event_btnDescriptionActionPerformed
         if (tableData.getSelectedRow() < 0) {
-            message.information("Selecione uma linha");
+            Alert.menssage("Selecione uma linha", "into", JOptionPane.INFORMATION_MESSAGE);
         } else {
             ScreenDescription show = new ScreenDescription();
             int id = Integer.parseInt(tableData.getValueAt(tableData.getSelectedRow(), 0).toString());
@@ -255,9 +256,9 @@ public class ScreenMain extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed() {//GEN-FIRST:event_btnDeleteActionPerformed
         if (tableData.getSelectedRow() < 0) {
-            message.information("Selecione uma linha");
+            Alert.menssage("Selecione uma linha", "into", JOptionPane.INFORMATION_MESSAGE);
         } else {  
-            if (message.confirmation("Tem certeza que deseja excluir os dados?")) {
+            if (Alert.confirmation("Tem certeza que deseja excluir os dados?")) {
                 int id = Integer.parseInt(tableData.getValueAt(tableData.getSelectedRow(), 0).toString());
                 control.deletePDF(id);
             }
@@ -272,7 +273,7 @@ public class ScreenMain extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed() {//GEN-FIRST:event_btnSearchActionPerformed
         if (txtSearch.getText().equals("")) {
-            message.information("Preencha o campo de Pesquisa");
+            Alert.menssage("Preencha o campo de Pesquisa", "into", JOptionPane.INFORMATION_MESSAGE);
         } else {
             control.searchTable(txtSearch.getText());
         }
@@ -280,7 +281,7 @@ public class ScreenMain extends javax.swing.JFrame {
 
     private void btnDownloadActionPerformed() {//GEN-FIRST:event_btnDownloadActionPerformed
         if (tableData.getSelectedRow() < 0) {
-            message.information("Selecione uma linha");
+            Alert.menssage("Selecione uma linha", "into", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setDialogTitle("Salvar PDF");
@@ -300,22 +301,6 @@ public class ScreenMain extends javax.swing.JFrame {
     private void btnUpdateActionPerformed() {//GEN-FIRST:event_btnUpdateActionPerformed
         control.addDataDable();
     }//GEN-LAST:event_btnUpdateActionPerformed
-
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ScreenMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        java.awt.EventQueue.invokeLater(() -> {
-            new ScreenMain().setVisible(true);
-        });
-    }
 
     public JLabel getLabelShowFile() {
         return labalShowFile;

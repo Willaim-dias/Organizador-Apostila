@@ -1,5 +1,6 @@
-package controller;
+package view;
 
+import controller.PDFModules;
 import java.awt.Image;
 import java.io.IOException;
 import java.io.FileOutputStream;
@@ -8,13 +9,11 @@ import java.util.List;
 import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
-import model.DeleteData;
 import model.GetData;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
-import view.ScreenMain;
 
-public class MainControl {
+public class ScreenMainControl {
 
     private final ScreenMain main;
     private final PDFModules pdfModules = new PDFModules();;
@@ -23,7 +22,7 @@ public class MainControl {
     int width;
     private final List<Object> list = new ArrayList<>();
 
-    public MainControl(ScreenMain main) {
+    public ScreenMainControl(ScreenMain main) {
         this.main = main;
         width = main.getLabelShowFile().getWidth();
     }

@@ -1,4 +1,4 @@
-package Connection;
+package connection;
 
 import java.io.File;
 import java.sql.Connection;
@@ -6,7 +6,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import view.ShowMessage;
+import javax.swing.JOptionPane;
+import view.util.Alert;
 
 public class DB {
 
@@ -26,9 +27,7 @@ public class DB {
                 return conn;
             }
         } else {
-            ShowMessage message = new ShowMessage();
-            message.information("Banco de dados não encontrado");
-            System.exit(0);
+            Alert.menssage("Banco de dados não encontrado", "Info", JOptionPane.INFORMATION_MESSAGE);
         }
         return null;
     }

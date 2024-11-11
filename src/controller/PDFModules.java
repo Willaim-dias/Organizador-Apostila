@@ -14,7 +14,7 @@ public class PDFModules {
     public PDFModules() {
     }
 
-    protected PDFRenderer rendererPDF(byte[] pdfByte) {
+    public PDFRenderer rendererPDF(byte[] pdfByte) {
         try {
             document = PDDocument.load(new ByteArrayInputStream(pdfByte));
             numberPage = document.getNumberOfPages();
@@ -25,11 +25,11 @@ public class PDFModules {
         return null;
     }
 
-    protected int getNumberPage() {
+    public int getNumberPage() {
         return numberPage;
     }
 
-    protected void closeDocument() {
+    public void closeDocument() {
         if (document != null) {
             try {
                 document.close();

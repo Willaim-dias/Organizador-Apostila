@@ -1,9 +1,13 @@
 package view;
 
+import view.util.Alert;
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import model.InsertData;
+import model.Service.DocumentService;
+import model.entities.Document;
+import view.util.Util;
 
 public class ScreenAddPdf extends javax.swing.JFrame {
 
@@ -92,10 +96,11 @@ public class ScreenAddPdf extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private final DocumentService service = new DocumentService();
+    
     private void btnSaveActionPerformed() {//GEN-FIRST:event_btnSaveActionPerformed
         if (txtName.getText().equals("")) {
-            ShowMessage message = new ShowMessage();
-            message.information("Campo Titulo Vazio!");
+            Alert.menssage("Campo Titulo Vazio!", "Info", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setDialogTitle("Arquivos PDF");
@@ -104,11 +109,11 @@ public class ScreenAddPdf extends javax.swing.JFrame {
             int selection = fileChooser.showSaveDialog(this);
             if (selection == 0) {
                 File file = fileChooser.getSelectedFile();
-                InsertData insertData = new InsertData();
                 String name = txtName.getText().toLowerCase();
                 String reference = txtReference.getText().toLowerCase();
                 String description = txtArea.getText().toLowerCase();
-                insertData.inserirPDF(name,reference,description,file.toString());
+                Document document = new Document(null, name, reference, description, Util.lerArquivoPDF(file));
+                service.saveOrUpdate(document);
             }
         }
     }//GEN-LAST:event_btnSaveActionPerformed
