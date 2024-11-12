@@ -9,17 +9,21 @@ import java.util.List;
 import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
-import model.GetData;
+import model.Service.DocumentService;
+import model.entities.Document;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
 
 public class ScreenMainControl {
 
+    private final DocumentService service = new DocumentService();
+    private final PDFModules pdfModules = new PDFModules();
+
     private final ScreenMain main;
-    private final PDFModules pdfModules = new PDFModules();;
     private PDFRenderer renderer;
     private int pageNumber;
     int width;
+
     private final List<Object> list = new ArrayList<>();
 
     public ScreenMainControl(ScreenMain main) {
@@ -32,13 +36,13 @@ public class ScreenMainControl {
         DefaultTableModel dtm = (DefaultTableModel) main.getTableData().getModel();
         list.clear();
         dtm.setRowCount(0);
-        GetData getData = new GetData();
-        List<Map<String, Object>> result = getData.recuperarDatas();
-        main.getLabelTotal().setText("Total de arquivos: "+result.size());
-        for (Map<String, Object> row : result) {
-            String name = row.get("nome_arquivo").toString().toLowerCase();
-            Object[] obj = {row.get("id"),name};
-            dtm.addRow(obj);
+        List<Document> result = service.findAll();
+        if (result != null) {
+            main.getLabelTotal().setText("Total de arquivos: " + result.size());
+            for (Document doc : result) {
+                Object[] obj = {doc.getId(), doc.getName().toLowerCase()};
+                dtm.addRow(obj);
+            }
         }
     }
 
@@ -75,8 +79,8 @@ public class ScreenMainControl {
     }
 
     public void openPdf(String id) {
-        GetData getData = new GetData();
-        renderer = pdfModules.rendererPDF(getData.recuperarPDF(Integer.parseInt(id)));
+        Document doc = service.findById(Integer.parseInt(id));
+        renderer = pdfModules.rendererPDF(doc.getPdf());
         pageNumber = pdfModules.getNumberPage();
         main.getLabelShowNumber().setText("1/" + pageNumber);
         showPdf(0);
@@ -100,22 +104,20 @@ public class ScreenMainControl {
                 }
             }
         }
-
     }
 
     public void getPDF(int id, String file) {
-        GetData getData = new GetData();
+        Document doc = service.findById(id);
         try {
             try (FileOutputStream fos = new FileOutputStream(file)) {
-                fos.write(getData.recuperarPDF(id));
+                fos.write(doc.getPdf());
             }
         } catch (IOException e) {
         }
     }
 
     public void deletePDF(int id) {
-        DeleteData delete = new DeleteData();
-        delete.removePDF(id);
+        service.remove(id);
         addDataDable();
     }
 }

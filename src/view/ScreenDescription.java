@@ -1,6 +1,7 @@
 package view;
 
-import model.GetData;
+import model.Service.DocumentService;
+import model.entities.Document;
 
 public class ScreenDescription extends javax.swing.JFrame {
 
@@ -9,12 +10,13 @@ public class ScreenDescription extends javax.swing.JFrame {
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/image/pdf-book.png")).getImage());
     }
 
+    private final DocumentService service = new DocumentService();
+    
     public void AddData(int id){
-        GetData getData = new GetData();
-        String[] data = getData.getDetails(id);
-        txtName.setText(data[0]);
-        txtReference.setText(data[1]);
-        txtArea.setText(data[2]);
+        Document obj = service.findById(id);
+        txtName.setText(obj.getName());
+        txtReference.setText(obj.getReference());
+        txtArea.setText(obj.getDescription());
     }
     
     @SuppressWarnings("unchecked")

@@ -7,11 +7,15 @@ import model.entities.Document;
 
 public class DocumentService {
     
-    private DocumentDao dao = DaoFactory.createDocumentDao();
+    private final DocumentDao dao = DaoFactory.createDocumentDao();
     
     public List<Document> findAll() {
         return dao.findAll();
     }
+    
+    public Document findById(int id) {
+        return dao.findById(id);
+    } 
     
     public void saveOrUpdate(Document obj) {
         if (obj.getId() == null) {
@@ -21,8 +25,8 @@ public class DocumentService {
         }
     }
     
-    public void  remove(Document obj) {
-        dao.deleteById(obj.getId());
+    public void  remove(Integer id) {
+        dao.deleteById(id);
     }
     
 }

@@ -14,10 +14,10 @@ import model.entities.Document;
 import view.util.Alert;
 
 public class DocumentJDBC implements DocumentDao {
-    
+
     private Connection conn;
-    
-    public DocumentJDBC (Connection conn) {
+
+    public DocumentJDBC(Connection conn) {
         this.conn = conn;
     }
 
@@ -41,18 +41,18 @@ public class DocumentJDBC implements DocumentDao {
 
     @Override
     public void update(Document obj) {
-        
+
     }
 
     @Override
     public void deleteById(Integer id) {
         PreparedStatement st = null;
         try {
-            st = conn.prepareStatement("DELETE FROM PDFs WHERE ID = ?",Statement.RETURN_GENERATED_KEYS);
+            st = conn.prepareStatement("DELETE FROM PDFs WHERE ID = ?", Statement.RETURN_GENERATED_KEYS);
             st.setInt(1, id);
             st.executeUpdate();
         } catch (SQLException e) {
-          Alert.menssage("Erro ao deletar", "Erro", JOptionPane.WARNING_MESSAGE);
+            Alert.menssage("Erro ao deletar", "Erro", JOptionPane.WARNING_MESSAGE);
         } finally {
             DB.closeStatement(st);
         }
@@ -60,7 +60,7 @@ public class DocumentJDBC implements DocumentDao {
 
     @Override
     public Document findById(Integer id) {
-        String sql = "SELECT * FROM PDFs WHERE ID = ?";     
+        String sql = "SELECT * FROM PDFs WHERE ID = ?";
         PreparedStatement st = null;
         ResultSet rs = null;
         try {
@@ -91,18 +91,17 @@ public class DocumentJDBC implements DocumentDao {
             rs = st.executeQuery();
             List<Document> result = new ArrayList<>();
             while (rs.next()) {
-                Document document = new Document(rs.getInt("ID"), rs.getString("Nome_arquivo"), rs.getString("Referencia"), rs.getString("Descricao"), rs.getBytes("PDF"));
-                result.add(document);
+                Document doc = new Document(rs.getInt("ID"), rs.getString("Nome_arquivo"), rs.getString("Referencia"));
+                result.add(doc);
             }
             return result;
-
         } catch (SQLException e) {
-           Alert.menssage(e.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
+            Alert.menssage(e.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
         } finally {
             DB.closeResultSet(rs);
             DB.closeStatement(st);
         }
         return null;
     }
-    
+
 }
