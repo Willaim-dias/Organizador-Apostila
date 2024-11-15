@@ -21,7 +21,10 @@ public class ScreenMainControl {
 
     private final ScreenMain main;
     private PDFRenderer renderer;
-    private int pageNumber;
+    
+    private int pageNumber = 0;
+    private int heavyPages = 0;
+    
     int width;
 
     private final List<Object> list = new ArrayList<>();
@@ -79,14 +82,13 @@ public class ScreenMainControl {
     }
 
     public void openPdf(String id) {
+        heavyPages = 0;
         Document doc = service.findById(Integer.parseInt(id));
         renderer = pdfModules.rendererPDF(doc.getPdf());
         pageNumber = pdfModules.getNumberPage();
         main.getLabelShowNumber().setText("1/" + pageNumber);
         showPdf(0);
     }
-
-    private int heavyPages = 0;
 
     public void skipPage(int btn) {
         if (pageNumber > 0) {

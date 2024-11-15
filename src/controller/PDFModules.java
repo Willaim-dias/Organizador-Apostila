@@ -16,6 +16,9 @@ public class PDFModules {
 
     public PDFRenderer rendererPDF(byte[] pdfByte) {
         try {
+            if (document != null) {
+               document.close();
+            }
             document = PDDocument.load(new ByteArrayInputStream(pdfByte));
             numberPage = document.getNumberOfPages();
             renderer = new PDFRenderer(document);
