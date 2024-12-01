@@ -27,13 +27,17 @@ public class DocumentJDBC implements DocumentDao {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            st.setInt(1, obj.getId());
-            st.setString(2, obj.getName());
+            st.setString(1, obj.getName());
+            st.setString(2, obj.getReference());
             st.setString(3, obj.getDescription());
             st.setBytes(4, obj.getPdf());
-            st.executeUpdate();
+            int line = st.executeUpdate();
+
+            if (line > 0) {
+                Alert.menssage("Salvo com sucesso", "Info", JOptionPane.INFORMATION_MESSAGE);
+            }
         } catch (SQLException e) {
-            Alert.menssage("Erro ao inserir", "Erro", JOptionPane.WARNING_MESSAGE);
+            Alert.menssage("Erro ao inserir" + e.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
         } finally {
             DB.closeStatement(st);
         }

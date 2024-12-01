@@ -1,23 +1,22 @@
 package view;
 
-import controller.PDFModules;
 import java.awt.Image;
 import java.io.IOException;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import model.Service.DocumentService;
 import model.entities.Document;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
+import view.util.PdfUtil;
 
 public class ScreenMainControl {
 
     private final DocumentService service = new DocumentService();
-    private final PDFModules pdfModules = new PDFModules();
+    private final PdfUtil pdfUtil = new PdfUtil();
 
     private final ScreenMain main;
     private PDFRenderer renderer;
@@ -60,8 +59,7 @@ public class ScreenMainControl {
         }
         dtm.setRowCount(0);
         for (Object obj : list) {
-            if (obj instanceof Object[]) {
-                Object[] array = (Object[]) obj;
+            if (obj instanceof Object[] array) {
                 if (array[0].toString().equals(search) || array[1].toString().equals(search)) {
                     dtm.addRow(array);
                 }
@@ -84,8 +82,8 @@ public class ScreenMainControl {
     public void openPdf(String id) {
         heavyPages = 0;
         Document doc = service.findById(Integer.parseInt(id));
-        renderer = pdfModules.rendererPDF(doc.getPdf());
-        pageNumber = pdfModules.getNumberPage();
+        renderer = pdfUtil.rendererPDF(doc.getPdf());
+        pageNumber = pdfUtil.getNumberPage();
         main.getLabelShowNumber().setText("1/" + pageNumber);
         showPdf(0);
     }

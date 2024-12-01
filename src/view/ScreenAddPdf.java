@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Service.DocumentService;
 import model.entities.Document;
-import view.util.Util;
+import view.util.PdfUtil;
 
 public class ScreenAddPdf extends javax.swing.JFrame {
 
@@ -97,7 +97,7 @@ public class ScreenAddPdf extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private final DocumentService service = new DocumentService();
-    
+
     private void btnSaveActionPerformed() {//GEN-FIRST:event_btnSaveActionPerformed
         if (txtName.getText().equals("")) {
             Alert.menssage("Campo Titulo Vazio!", "Info", JOptionPane.INFORMATION_MESSAGE);
@@ -109,11 +109,16 @@ public class ScreenAddPdf extends javax.swing.JFrame {
             int selection = fileChooser.showSaveDialog(this);
             if (selection == 0) {
                 File file = fileChooser.getSelectedFile();
-                String name = txtName.getText().toLowerCase();
-                String reference = txtReference.getText().toLowerCase();
-                String description = txtArea.getText().toLowerCase();
-                Document document = new Document(null, name, reference, description, Util.lerArquivoPDF(file));
-                service.saveOrUpdate(document);
+
+                if (!PdfUtil.isValidExtension(file, "pdf")) {
+                    Alert.menssage("O arquivo não é um PDF válido.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    String name = txtName.getText().toLowerCase();
+                    String reference = txtReference.getText().toLowerCase();
+                    String description = txtArea.getText().toLowerCase();
+                    Document document = new Document(null, name, reference, description, PdfUtil.convertToByte(file));
+                    service.saveOrUpdate(document);
+                }
             }
         }
     }//GEN-LAST:event_btnSaveActionPerformed
